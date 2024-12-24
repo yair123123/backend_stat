@@ -1,3 +1,5 @@
+from typing import Dict
+
 import requests
 
 from app.api.processing.process_response import create_map_for_casualties_by_area, \
@@ -6,12 +8,12 @@ from app.flow.create_map import create_heatmap, create_map, create_table
 
 path_stat="http://127.0.0.1:5000/api/stat"
 def get_most_deadly(top):
-    response = requests.get(url=f"{path_stat}/most_deadly/{top}")
+    response = requests.get(url=f"{path_stat}/most_deadly/{top['top-5-radio']}")
     return create_table('partial_stats_table.html',response.json())
 
 
-def average_casualties(top):
-    response = requests.get(url=f"{path_stat}/average_casualties_by_area/{top}")
+def average_casualties(top:Dict[str,str]):
+    response = requests.get(url=f"{path_stat}/average_casualties_by_area/{top['top-5-radio']}")
     return create_map_for_casualties_by_area(response.json())
 
 def get_top_5_most_num_spread():
@@ -26,7 +28,7 @@ def get_most_group_active_by_region():
 
 
 def get_history_events_by_year(year):
-    response = requests.get(url=f"{path_stat}/history_events_by_year/{year}").json()
+    response = requests.get(url=f"{path_stat}/history_events_by_year/{year['input-year']}").json()
     # response = [(32.0853, 34.7818), (40.7306, -73.9352), (48.8566, 2.3522), (35.6895, 139.6917), (55.7558, 37.6176),
     #     (51.1657, 10.4515), (34.6937, 135.5023), (37.7749, -122.4194), (31.7683, 35.2137), (35.6762, 139.6503)]
 

@@ -8,7 +8,7 @@ front_blueprint = Blueprint("front",__name__)
 def make_query():
     try:
         req = request.get_json()
-        html_content = execute_statistics_function(req.get("statistic"),req.get("filter"))
+        html_content = execute_statistics_function(req.get("statistics"),req.get("filter"))
         return Response(html_content,content_type="text/html")
     except Exception as e:
         print(e)
