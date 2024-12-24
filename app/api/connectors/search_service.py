@@ -1,5 +1,7 @@
 import requests
 
+from app.api.processing.process_response import create_map
+
 path_search="http://127.0.0.1:5000/api/search"
 
 def search_in_text(filter):
@@ -9,3 +11,4 @@ def search_in_text(filter):
     end_date = filter.get('end-input-date')
 
     response = requests.get(url = f"{path_search}/{query_select}/{text}?start={start_date}&end={end_date}")
+    return create_map(response.json())

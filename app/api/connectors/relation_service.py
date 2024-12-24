@@ -3,7 +3,6 @@ import requests
 
 from app.api.processing.process_response import create_map_for_groups_with_common_goal, create_map_for_groups_unique, \
     create_map_for_shared_attack_type_in_groups
-from app.flow.create_map import create_table
 
 path_relation="http://127.0.0.1:5000/api/relation"
 def get_groups_with_common_goal_by_location(area):

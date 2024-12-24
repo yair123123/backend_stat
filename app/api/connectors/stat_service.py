@@ -3,8 +3,7 @@ from typing import Dict
 import requests
 
 from app.api.processing.process_response import create_map_for_casualties_by_area, \
-    create_map_for_most_groups_active_by_region
-from app.flow.create_map import create_heatmap, create_map, create_table
+    create_map_for_most_groups_active_by_region, create_table, create_heatmap
 
 path_stat="http://127.0.0.1:5000/api/stat"
 def get_most_deadly(top):
