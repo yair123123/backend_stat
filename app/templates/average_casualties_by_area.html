@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th>Area</th>
+            <th>Average casualties</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{ item['_id']['region'] }}</td>
+            <td>{{ item['average_casualties'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

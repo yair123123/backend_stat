@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th>Weapon Type</th>
+            <th>Total Casualties and Wounded</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{ item['_id'] }}</td>
+            <td>{{ item['total_casualties_and_wounded'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

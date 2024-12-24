@@ -7,4 +7,4 @@ app = Flask(__name__)
 CORS(app)
 app.register_blueprint(front_blueprint,url_prefix="/")
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False,port=5001)

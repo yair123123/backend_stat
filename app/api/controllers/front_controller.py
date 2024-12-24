@@ -11,6 +11,7 @@ def make_query():
         html_content = execute_statistics_function(req.get("statistic"),req.get("filter"))
         return Response(html_content,content_type="text/html")
     except Exception as e:
+        print(e)
         return jsonify({
             "message":str(e)
         }),500

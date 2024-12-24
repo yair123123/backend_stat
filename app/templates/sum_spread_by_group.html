@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th>Group name</th>
+            <th>Total Casualties and Wounded</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{ item['_id']['group'] }}</td>
+            <td>{{ item['average_casualties'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
