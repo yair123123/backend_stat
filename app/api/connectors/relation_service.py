@@ -20,3 +20,11 @@ def get_shared_goals_in_groups_by_year(year):
 def get_shared_attack_type_in_groups_by_location(country):
     response = requests.get(url=f"{path_relation}/shared_attack_type_in_groups_by_location/{country}")
     return response.json()
+
+# מיפוי פונקציות קשרים
+RELATION_FUNCTIONS = {
+    "get_groups_with_common_goal_by_location": get_groups_with_common_goal_by_location,
+    "get_both_groups_in_event_by_location": get_both_groups_in_event_by_location,
+    "get_shared_goals_in_groups_by_year": get_shared_goals_in_groups_by_year,
+    "get_shared_attack_type_in_groups_by_location": get_shared_attack_type_in_groups_by_location,
+}
