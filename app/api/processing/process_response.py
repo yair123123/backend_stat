@@ -1,5 +1,4 @@
 import folium
-from flask import jsonify
 
 
 def create_map_for_casualties_by_area(data):
@@ -17,11 +16,11 @@ def create_map_for_casualties_by_area(data):
         icon = folium.Icon(color=color)
 
         folium.Marker([location["latitude"], location["longitude"]],
-                      popup=f"<b>{location['_id']['region']}</b><br>{location['average_casualties']}",icon=icon).add_to(map)
-
-
+                      popup=f"<b>{location['_id']['region']}</b><br>{location['average_casualties']}",
+                      icon=icon).add_to(map)
 
     return map._repr_html_()
+
 
 def create_map_for_most_groups_active_by_region(data):
     map = folium.Map(location=[32.1, 34.8], zoom_start=6)
@@ -37,6 +36,7 @@ def create_map_for_most_groups_active_by_region(data):
                       popup=popup_content).add_to(map)
     return map._repr_html_()
 
+
 def create_map_for_groups_with_common_goal(data):
     map = folium.Map(location=[32.1, 34.8], zoom_start=6)
     locations = data['res']
@@ -47,9 +47,10 @@ def create_map_for_groups_with_common_goal(data):
         for group in location['groups']:
             popup_content += f"<b>{group}</b>"
 
-        folium.Marker([location["location"]['location']['latitude'], location["location"]['location']["longitude"]],
+        folium.Marker([location["location"]['latitude'], location["location"]["longitude"]],
                       popup=popup_content).add_to(map)
     return map._repr_html_()
+
 
 def create_map_for_groups_unique(data):
     map = folium.Map(location=[32.1, 34.8], zoom_start=6)
@@ -58,9 +59,11 @@ def create_map_for_groups_unique(data):
         popup_content = f"<b>Count {location['count']}</b><br><b>Groups:</b><br>"
         for group in location['groups']:
             popup_content += f"<b>{group}</b>"
-        folium.Marker([location["location"]['location']['latitude'], location["location"]['location']["longitude"]],
+        folium.Marker([location["location"]['latitude'], location["location"]["longitude"]],
                       popup=popup_content).add_to(map)
     return map._repr_html_()
+
+
 def create_map_for_shared_goals_in_groups(data):
     map = folium.Map(location=[32.1, 34.8], zoom_start=6)
     locations = data['res']
@@ -71,6 +74,8 @@ def create_map_for_shared_goals_in_groups(data):
         folium.Marker([location["location"]['location']['latitude'], location["location"]['location']["longitude"]],
                       popup=popup_content).add_to(map)
     return map._repr_html_()
+
+
 def create_map_for_shared_attack_type_in_groups(data):
     map = folium.Map(location=[32.1, 34.8], zoom_start=6)
     locations = data['res']

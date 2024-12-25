@@ -15,7 +15,6 @@ def get_groups_with_common_goal_by_location(area):
 
 def get_unique_groups_by_location(area):
     country = True if area['area-select'] == 'country' else False
-
     response = requests.get(url=f"{path_relation}/unique_groups_by_location/{country}")
     res = response.json()
     return  create_map_for_groups_unique(res)
